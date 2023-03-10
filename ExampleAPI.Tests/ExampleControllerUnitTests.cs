@@ -11,7 +11,8 @@ public class ExampleControllerUnitTests
     public void WeatherForecast_Get_Returns_Success()
     {
         var loggerMock = new Mock<ILogger<WeatherForecastController>>();
-        var controller = new WeatherForecastController(loggerMock.Object);
+        var contextMock = new Mock<WeatherContext>();
+        var controller = new WeatherForecastController(loggerMock.Object, contextMock.Object);
 
         var result = controller.Get();
 
